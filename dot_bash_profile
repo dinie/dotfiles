@@ -1,0 +1,150 @@
+# export PATH="/Users/Justin/.pyenv:$PATH"
+# export PATH="~/.pyenv:$PATH"
+export PATH=/usr/local/bin:$PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+
+export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/opt/ruby/bin:/usr/local/mysql/bin:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:/Applications/Firefox.app/Contents/MacOS:/usr/local/sbin
+export PATH=$PATH:/usr/local/opt/qt/bin
+
+# PYENV
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+# if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+# DIRENV
+eval "$(direnv hook bash)"
+
+# heroku autocomplete setup
+HEROKU_AC_BASH_SETUP_PATH=/Users/Justin/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
+
+# tell XCode to fuck off
+export ARCHFLAGS="-Wno-error=unused-command-line-argument-hard-error-in-future"
+
+# Github Git
+# export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/git/bin:$PATH"
+
+# Pip Download cache
+# export PIP_DOWNLOAD_CACHE="$HOME/Library/Caches/pip-downloads"
+
+# EC2
+export PATH="$PATH:$EC2_HOME/bin"
+export JAVA_HOME=$(/usr/libexec/java_home)
+export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.1.0
+# export PATH=/usr/local/lib:/usr/local/bin:$PATH
+
+# export PYTHONDONTWRITEBYTECODE=1
+
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+# VirtualEnvWrapper
+export WORKON_HOME=~/Envs
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+source /usr/local/bin/virtualenvwrapper.sh
+
+# RabbitMQ
+export PATH=/usr/local/sbin:$PATH
+
+# Git Bash Completion
+source ~/git-completion.bash
+
+# ANDROID SDK Vars
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export HISTFILESIZE=1000000
+export LANG=en_AU.UTF-8
+export EDITOR=vim
+
+# DOCKER
+dcleanup(){
+    docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+    docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+
+alias pyclean="find . -name \*.pyc -o -name \*.pyo -o -name __pycache__ -delete"
+alias yaml2js="python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)'"
+alias md5sum="md5 -r"
+
+# Balena etcher
+alias etcher="/Applications/balenaEtcher.app/Contents/MacOS/balenaEtcher"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+complete -C /usr/local/bin/terraform terraform
+
+source <(kubectl completion bash)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/Justin/google-cloud-sdk/path.bash.inc' ]; then . '/Users/Justin/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/Justin/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/Justin/google-cloud-sdk/completion.bash.inc'; fi
+
+export LD_LIBRARY_PATH=/usr/local/lib
+export PYENV_VIRTUALENV_DISABLE_PROMPT=0
+export PATH="$HOME/web/tfenv/bin:$PATH"
+
+export PATH="$HOME/.tfenv/bin:$PATH"
+complete -C /usr/local/bin/vault vault
+# eval "$(_SCEPTRE_COMPLETE=source sceptre)"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+export SDM_ADMIN_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjc4OTkwNjMwOTUsIm9yZ2FuaXphdGlvbklkIjo5MjIsImNyZWF0b3IiOiJqdXN0aW5hQG1lZGFkdmlzb3IuY29tLmF1IiwiY3JlYXRvcklkIjo3NzUxODQyODM5OTc2NjE1MTU3LCJndWlkIjoiY2VhOWVkNzktMmM4MS00ZTQwLTkwZGEtNGVkMWYyNzQwNDZiIiwibmFtZSI6IndlYnRlc3QtYWRtaW4ifQ.lzhRZJ-U5X4jkMt1321zwWFc9zyxhlc8BmL3ts_w64g
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export OCTOPUS_CLI_API_KEY="API-EDZUE6AEJ7NFF732DV6UP0O0AE0"
+export OCTOPUS_CLI_SERVER="https://octopus.medadvisor.com.au"
+
+# start: Octopus CLI (octo) Autocomplete script
+_octo_bash_complete()
+{
+    local params=${COMP_WORDS[@]:1}
+    local completions="$(octo complete ${params})"
+    COMPREPLY=( $(compgen -W "$completions") )
+}
+complete -F _octo_bash_complete octo
+complete -F _octo_bash_complete Octo
+# end: Octopus CLI (octo) Autocomplete script
+
+export PATH="$HOME/.poetry/bin:$PATH"
+export OCTODEV_REPO_PATH=/Users/Justin/web/octodev
+alias octodev="inv --search-root=${OCTODEV_REPO_PATH}"
+export INVOKE_CLIENT=origin
+export ORIGIN_DB="origin-consumer"
+export NECTR_DB="nectr-consumer"
+export ORIGIN_CONSUMPTION_DB="origin-consumption"
+export NECTR_CONSUMPTION_DB="nectr-consumption"
+export ORIGIN_DB_CONF="DATABASE_NAME=$ORIGIN_DB DATABASE_CONSUMPTION_NAME=$ORIGIN_CONSUMPTION_DB"
+export NECTR_DB_CONF="DATABASE_NAME=$NECTR_DB DATABASE_CONSUMPTION_NAME=$NECTR_CONSUMPTION_DB"
+export CONSUMER_SITE_REPO_PATH=/Users/Justin/web/kraken-core
+
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+
+alias origin-support="DJANGO_SETTINGS_MODULE=localdev.settings DJANGO_CONFIGURATION=OriginSupportSite DATABASE_NAME=krakencore DATABASE_CONSUMPTION_NAME=krakencore ${CONSUMER_SITE_REPO_PATH}/src/manage.py runserver --skip-checks"
+alias origin-cmd="DJANGO_SETTINGS_MODULE=localdev.settings DJANGO_CONFIGURATION=OriginManagementCommand DATABASE_NAME=krakencore DATABASE_CONSUMPTION_NAME=krakencore ${CONSUMER_SITE_REPO_PATH}/src/manage.py ${@:2}"
+alias origin-migrate="DJANGO_SETTINGS_MODULE=localdev.settings DJANGO_CONFIGURATION=OriginMigration DATABASE_NAME=krakencore DATABASE_CONSUMPTION_NAME=krakencore ${CONSUMER_SITE_REPO_PATH}/src/manage.py migrate"
+
+alias nectr-cmd="DJANGO_SETTINGS_MODULE=localdev.settings DJANGO_CONFIGURATION=NectrManagementCommand DATABASE_NAME=krakencorenectr DATABASE_CONSUMPTION_NAME=krakencorenectr ${CONSUMER_SITE_REPO_PATH}/src/manage.py ${@:2}"
+
+alias nectr-support="DJANGO_SETTINGS_MODULE=localdev.settings DJANGO_CONFIGURATION=NectrSupportSite DATABASE_NAME=krakencorenectr DATABASE_CONSUMPTION_NAME=krakencorenectr ${CONSUMER_SITE_REPO_PATH}/src/manage.py runserver --skip-checks"
+
+alias nectr-migrate="DJANGO_SETTINGS_MODULE=localdev.settings DJANGO_CONFIGURATION=NectrMigration DATABASE_NAME=krakencorenectr DATABASE_CONSUMPTION_NAME=krakencorenectr ${CONSUMER_SITE_REPO_PATH}/src/manage.py migrate"
+
+inv --print-completion-script bash
+
+export HOMEBREW_FORCE_BREWED_CURL=1
+export ANDROID_SDK=/Users/Justin/Library/Android/sdk
+eval "$(starship init bash)"
