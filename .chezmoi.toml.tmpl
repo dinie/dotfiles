@@ -1,0 +1,9 @@
+{{- $email := promptString "email" -}}
+{{- $github_token := promptString "github_token" -}}
+{{- $balena_token := promptString "balena_token" -}}
+{{- $terraform_token := promptString "terraform_token" -}}
+[data]
+    email = "{{ $email }}"
+    github_token = "{{ $github_token }}"
+    balena_token = "{{ $balena_token }}"
+    terraform_token = "{{ $terraform_token }}"

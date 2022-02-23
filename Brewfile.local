@@ -1,4 +1,3 @@
-tap "adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver", "https://github.com/adrianmihalko/ch340g-ch34g-ch34x-mac-os-x-driver"
 tap "cloudflare/cloudflare"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -7,12 +6,12 @@ tap "homebrew/services"
 tap "microsoft/mssql-release"
 tap "mongodb/brew"
 tap "octopusdeploy/taps"
-tap "petere/postgresql"
 tap "shopify/shopify"
 brew "ossp-uuid"
 brew "readline", link: true
 brew "ansible", link: false
 brew "apktool"
+brew "bat"
 brew "ruby"
 brew "automake"
 brew "asdf"
@@ -92,6 +91,7 @@ brew "libmagic"
 brew "libmemcached"
 brew "libusb"
 brew "libxslt"
+brew "mas"
 brew "md5sha1sum", link: false
 brew "memcached", link: false
 brew "mercurial", link: false
@@ -104,8 +104,6 @@ brew "portaudio"
 brew "portmidi"
 brew "postgresql"
 brew "postgis", link: false
-brew "postgresql@11"
-brew "postgresql@9.5"
 brew "pre-commit"
 brew "pv"
 brew "py2cairo"
@@ -127,18 +125,36 @@ brew "wget"
 brew "yarn"
 brew "yq"
 brew "cloudflare/cloudflare/cloudflared"
-brew "microsoft/mssql-release/msodbcsql17"
-brew "microsoft/mssql-release/mssql-tools"
 brew "mongodb/brew/mongodb-community"
 brew "mongodb/brew/mongodb-community-shell", link: false
 brew "octopusdeploy/taps/octopuscli"
-brew "petere/postgresql/postgresql@9.4"
 brew "shopify/shopify/themekit"
+
 cask "fastlane"
-cask "hyper"
+cask "vlc"
 cask "minikube"
 cask "powershell"
 cask "vagrant"
 cask "virtualbox"
 cask "wkhtmltopdf"
 cask "xquartz"
+
+cask "alfred"
+cask "dash"
+cask "discord"
+
+# Fonts
+tap 'homebrew/cask-fonts'
+cask 'font-fira-code-nerd-font'
+
+mas "Byword", id: 420212497
+mas "Clocks", id: 414554506
+mas "Dash", id: 458034879
+mas "Divvy", id: 413857545
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "MQTTBox", id: 1165784816
+mas "NextDNS", id: 1464122853
+mas "NordVPN IKE", id: 1116599239
+mas "StuffIt Expander", id: 405580712
+mas "Transporter", id: 1450874784
+mas "Wire", id: 931134707

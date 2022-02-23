@@ -1,0 +1,64 @@
+[user]
+	name = Justin Arulnathan
+	email = justin.arulnathan@commoncode.io
+[core]
+	autocrlf = false
+	safecrlf = true
+	editor = subl -n -w
+	excludesfile = /Users/Justin/.gitignore_global
+	whitespace = -trailing-space,-indent-with-non-tab,-tab-in-indent
+[alias]
+	co = checkout
+	ci = commit
+	cp = cherry-pick
+	st = status -s
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	type = cat-file -t
+	dump = cat-file -p
+	fu = rebase -i --autosquash
+	fwl = push --force-with-lease
+	slog = log --oneline --decorate
+	gr = grep -Ii
+	diff = diff --word-diff
+	ac = !git add . && git commit -am
+	po = push origin
+	pa =! git fetch --all && git pull
+	mt = mergetool --tool=opendiff
+[diff]
+    tool = meld
+    whitespace = --ignore-space-at-eol
+[difftool]
+    prompt = false
+[difftool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
+[mergetool]
+	tool = kdiff3
+	keepBackup = false
+[filter "media"]
+	required = true
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[push]
+	default = simple
+[rebase]
+	autosquash = true
+[pull]
+	rebase = true
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[commit]
+	template = /Users/Justin/.stCommitMsg
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[credential]
+	helper = osxkeychain
